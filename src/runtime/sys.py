@@ -7,8 +7,16 @@ def exit(error_code: i32):
 
     quit(error_code)
 
+#  >>> argv >>>
+@ccall
+def _lpython_get_argc() -> i32:
+    pass
+
+@ccall
+def _lpython_get_argv(index: i32) -> str:
+    pass
+
 def _lpython_argv() -> list[str]:
-    # TODO: use argv as a global `list[str]` variable
     """
     Gets the list of command line arguments
     """
@@ -19,10 +27,5 @@ def _lpython_argv() -> list[str]:
         argv.append(_lpython_get_argv(i))
     return argv
 
-@ccall
-def _lpython_get_argc() -> i32:
-    pass
-
-@ccall
-def _lpython_get_argv(index: i32) -> str:
-    pass
+argv: list[str] = _lpython_argv()
+#  <<< argv <<<
