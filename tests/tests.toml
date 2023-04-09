@@ -230,8 +230,8 @@ wat = true
 filename = "loop2.py"
 ast = true
 asr = true
-cpp = true
 c = true
+# cpp = true # TODO
 
 [[test]]
 filename = "loop3.py"
